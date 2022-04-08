@@ -1,3 +1,7 @@
+export interface ApiUriType {
+  POKEMON_LIST: string;
+}
+
 export enum StoreStatus {
   OFFLINE,
   ONLINE,

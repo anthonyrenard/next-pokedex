@@ -1,15 +1,18 @@
 import { makeAutoObservable } from "mobx";
-import { PokemonList, StoreStatus } from "../types";
+import { ApiUriType, PokemonList, StoreStatus } from "../types";
+import { Config } from "../utils";
 
 export class PokemonStore {
   constructor() {
     makeAutoObservable(this);
   }
 
-  API_URI: string = "https://pokeapi.co/api/v2/pokemon";
+  private API_URI: ApiUriType = {
+    POKEMON_LIST: `${Config.POKEMON_API_URI}/pokemon`,
+  };
+  private _data: PokemonList[] = [];
 
   storeStatus: StoreStatus = StoreStatus.OFFLINE;
-  _data: PokemonList[] = [];
 
   /**
    * Fetch pokemon list
@@ -18,7 +21,7 @@ export class PokemonStore {
     this.setStoreStatus(StoreStatus.OFFLINE);
 
     try {
-      const response = await fetch(this.API_URI);
+      const response = await fetch(this.API_URI.POKEMON_LIST);
       const data = await response.json();
 
       this.setData(data.results);
