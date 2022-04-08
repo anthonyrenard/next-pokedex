@@ -17,7 +17,7 @@ const Home: NextPage = observer(() => {
     <div className="container mx-auto">
       <div className="p-4 bg-teal-200 flex justify-between">
         <h1 className="text-xl font-bold uppercase">Pokemons</h1>
-        <nav className="flex space-x-4">
+        <nav className="flex items-center space-x-4">
           <div className="font-semibold text-sm uppercase opacity-60 hover:opacity-100 hover:underline cursor-pointer transition-opacity ease-in-out duration-300">
             Fire
           </div>
