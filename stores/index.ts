@@ -1,1 +1,2 @@
-export { PokemonStore, pokemonStore } from "./pokemon";
+export { Pokemon, pokemonStore } from "./pokemon";
+export { PokemonDetail } from "./pokemon-detail";
